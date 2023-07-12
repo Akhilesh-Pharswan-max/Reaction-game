@@ -1,0 +1,70 @@
+<html>
+
+        <title>Document</title> </head>
+
+        <style>
+            #first {
+                background-color: red;
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <h1>this is a time rection game </h1>
+        <div id="first"></div>
+        <script>
+
+            function randomColor() {
+                // Generate random values for red, green, and blue
+                var red = Math.floor(Math.random() * 256);
+                var green = Math.floor(Math.random() * 256);
+                var blue = Math.floor(Math.random() * 256);
+
+                // Combine the values into a CSS color string and return it
+                return "rgb(" + red + ", " + green + ", " + blue + ")";
+            }
+
+            
+            function move() {
+                start = new Date().getTime();
+                var left;
+                var top;
+                var wh;
+
+                left = Math.random() * 300;
+                top = Math.random() * 400;
+                wh = ((Math.random() * 400) + 100);
+                wh = ((Math.random() * 400) + 100);
+                document.getElementById("first").style.left = left;
+                document.getElementById("first").style.top = top;
+                document.getElementById("first").style.width = wh;
+                document.getElementById("first").style.height = wh;
+                document.getElementById("first").style.display = "block";
+                document.getElementById("first").style.backgroundColor = randomColor();
+                
+            }
+
+            window.onload = function() {
+                move();
+                
+                document.getElementById("first").onclick = function () {
+                    document.getElementById("first").style.display = "none";
+
+
+                    var end = new Date().getTime();
+                    var time_taken = (end - start) / 1000;
+                    alert("time taken by the user to click the box is :" + time_taken);
+                    move();
+                } 
+            }
+        </script>
+
+
+
+    </body>
+
+</html>
